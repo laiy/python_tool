@@ -66,18 +66,10 @@ print('Messages: %s. Size: %s' % server.stat())
 resp, mails, octets = server.list()
 print(mails)
 while True:
-    choise = raw_input('What do you want? (b): browse email (d):delete email (q):quit ')
+    choise = raw_input('What do you want? (index): the index of the email you would like to browse (q):quit ')
     if choise is 'q':
         break
-    index = raw_input('Email index: ')
-    if choise is 'd':
-        resp, lines, octets = server.retr(index)
-        server.dele(index)
-        print('Messages: %s. Size: %s' % server.stat())
-        resp, mails, octets = server.list()
-        print(mails)
-        continue
-    resp, lines, octets = server.retr(index)
+    resp, lines, octets = server.retr(choise)
     msg_content = '\r\n'.join(lines)
     msg = Parser().parsestr(msg_content)
     print_info(msg)
