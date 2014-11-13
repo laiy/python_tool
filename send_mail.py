@@ -13,8 +13,8 @@ def _format_addr(s):
         addr.encode('utf-8') if isinstance(addr, unicode) else addr))
 
 from_addr = '834788686@qq.com'
-password = 'LAIYUAN941114'
 smtp_server = 'smtp.qq.com'
+password = raw_input('Pwd: ')
 to_addr = raw_input('Send to: ')
 title = raw_input("Title: ")
 content = raw_input('Content: ')
