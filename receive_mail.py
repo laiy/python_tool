@@ -22,7 +22,7 @@ def guess_charset(msg):
     return charset
 
 def print_info(msg, indent=0):
-    if indent is 0:
+    if indent == 0:
         for header in ['From', 'To', 'Subject']:
             value = msg.get(header, '')
             if value:
@@ -71,6 +71,7 @@ while True:
         break
     index = raw_input('Email index: ')
     if choise is 'd':
+        resp, lines, octets = server.retr(index)
         server.dele(index)
         print('Messages: %s. Size: %s' % server.stat())
         resp, mails, octets = server.list()
