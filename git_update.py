@@ -6,14 +6,7 @@
 #	> Mail: ly.franky@gmail.com
 #	> Created Time: Saturday, December 06, 2014 AM09:11:06 CST
 
-import sys
 import os
-
-def execCmd(cmd):
-    r = os.popen(cmd)
-    text = r.read()
-    r.close()
-    return text
 
 cmd = "git add -A"
 os.system(cmd)
